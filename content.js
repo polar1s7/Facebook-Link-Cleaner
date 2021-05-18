@@ -8,7 +8,13 @@ function deleteAllHref(){
     }
 }
 function splitTheShitOut(link){
-	return link.split('__cft__')[0];
+	if(link.includes('?__cft__')){
+		return link.split('?__cft__')[0];
+	} else if (link.includes('&__cft__')){
+		return link.split('&__cft__')[0];
+	} else {
+		return link.split('__cft__')[0];
+	}
 }
 function startTheUseless(){
     setInterval(deleteAllHref, 0); // much faster if 0 
